@@ -2,7 +2,9 @@ from PIL import Image
 import math
 
 src = Image.open("logo.png").convert("RGBA")
-W, H = 600, 400
+# Square canvas — ideal for profile pictures
+SIZE = 500
+W, H = SIZE, SIZE
 CANVAS = (W, H)
 
 def frame(img, angle=0, scale=1.0):
@@ -46,7 +48,7 @@ frames.append(frame(src, angle=0, scale=1.0))
 durations.append(300)
 
 frames[0].save(
-    "logo-animation.gif",
+    "logo-animation-square.gif",
     save_all=True,
     append_images=frames[1:],
     duration=durations,
